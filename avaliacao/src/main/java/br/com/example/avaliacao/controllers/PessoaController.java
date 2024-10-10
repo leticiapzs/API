@@ -24,4 +24,9 @@ public class PessoaController {
 		emailService.writerTeste2();
 		return "Email enviado com sucesso!";
 	}
+	@GetMapping("/Filmes")
+    public String mailSend() {
+        emailService.mailSend();
+        return "Email(2) Enviado com Sucesso";
+    }
 }
