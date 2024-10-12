@@ -11,10 +11,12 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
+@Service
 @Component
 public class EmailService {
 
@@ -67,25 +69,24 @@ public class EmailService {
   }
 
   public String writerTeste2() {
+      LocalDateTime dateTime = LocalDateTime.now();
+      DateTimeFormatter dateForm = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-    LocalDateTime dateTime = LocalDateTime.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+      MimeMessage message = javaMailSender.createMimeMessage();
 
-    MimeMessage message = javaMailSender.createMimeMessage();
+      try {
+          MimeMessageHelper helper = new MimeMessageHelper(message, true);
+          helper.setSubject("Teste email2");
+          helper.setTo("fredcostafernandes@gmail.com");
 
-    try {
-      MimeMessageHelper helper = new MimeMessageHelper(message, true);
-      helper.setTo("fredcostafernandes@gmail.com");
-      helper.setSubject("Ofertas Especiais para Você!"); 
-
-      String html = "<p>Ofertas Especiais para você!</p>";
-      helper.setText(html, true); 
-      javaMailSender.send(message);
-      return "E-mail enviado com sucesso";
-    } catch (MessagingException e) {
-      return "Erro ao enviar e-mail" + e.getMessage();
-    }
-
+          String emailText = "<h1>Teste de e-mail 2</h1>" + "<p>Testando...</p>" + "<p>E-mail enviado na data: "
+                  + dateTime.format(dateForm) + "</p>" + "<br>";
+          helper.setText(emailText, true);
+          javaMailSender.send(message);
+          return "Email enviado com sucesso";
+      } catch (MessagingException e) {
+          return "erro ao enviar o email" + e.getMessage();
+      }
   }
 
   public void mailSend() {
