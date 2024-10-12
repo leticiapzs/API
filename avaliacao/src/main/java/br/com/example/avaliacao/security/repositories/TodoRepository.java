@@ -1,4 +1,4 @@
-package br.com.example.avaliacao.repositories;
+package br.com.example.avaliacao.security.repositories;
 
 import org.springframework.stereotype.Repository;
 

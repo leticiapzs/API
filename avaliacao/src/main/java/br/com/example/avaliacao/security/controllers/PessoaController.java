@@ -1,11 +1,11 @@
-package br.com.example.avaliacao.controllers;
+package br.com.example.avaliacao.security.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.example.avaliacao.services.EmailService;
+import br.com.example.avaliacao.security.services.EmailService;
 
 @RestController
 @RequestMapping("/pessoas")
