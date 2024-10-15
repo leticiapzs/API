@@ -1,4 +1,4 @@
-package br.com.example.avaliacao.entities;
+package br.com.example.avaliacao.security.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,17 +22,15 @@ public class Pessoa {
 	@Column(name="filme")
 	private String filme;
 	
-	@Column(name="serie")
-	private String serie;
-
+	
 	public Pessoa() {
 	}
 
-	public Pessoa(Integer id, String nomeCompleto, String filme, String serie) {
+	public Pessoa(Integer id, String nomeCompleto, String filme) {
 		this.id = id;
 		this.nomeCompleto = nomeCompleto;
 		this.filme = filme;
-		this.serie = serie;
+	
 	}
 
 	public Integer getId() {
@@ -59,16 +57,10 @@ public class Pessoa {
 		this.filme = filme;
 	}
 
-	public String getSerie() {
-		return serie;
-	}
-
-	public void setSerie(String serie) {
-		this.serie = serie;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Pessoa [id=" + id + ", nomeCompleto=" + nomeCompleto + ", filme=" + filme + ", serie=" + serie + "]";
+		return "Pessoa [id=" + id + ", nomeCompleto=" + nomeCompleto + ", filme=" + filme + ", serie=" + "]";
 	}
 }
