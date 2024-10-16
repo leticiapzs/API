@@ -21,7 +21,7 @@ public class Pessoa {
 	
 	@Column(name="filme")
 	private String filme;
-	
+
 	
 	public Pessoa() {
 	}
@@ -56,8 +56,6 @@ public class Pessoa {
 	public void setFilme(String filme) {
 		this.filme = filme;
 	}
-
-	
 
 	@Override
 	public String toString() {
