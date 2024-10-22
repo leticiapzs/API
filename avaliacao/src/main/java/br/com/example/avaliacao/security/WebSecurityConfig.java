@@ -44,10 +44,9 @@ public class WebSecurityConfig {
 				.exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler))
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(auth -> auth
-						.requestMatchers("/g6/**", "/auth/**", "/h2-console/**", "/roles/**", "/test/all/**",
-							
-								"/swagger-ui/**", "/v3/api-docs/**", "/actuator/**").permitAll()
-						
+						.requestMatchers("/g6/**", "/auth/**", "/h2-console/**", "/roles/**", "/test/all/**",						
+								"/swagger-ui/**", "/v3/api-docs/**", "/actuator/**", "/pessoas/teste-cep/**", "/endereco/{id}/**"
+										+ "").permitAll()
 						.requestMatchers("/test/user/**").hasAnyRole("USER", "ADMIN")
 						.requestMatchers("/test/admin/**").hasRole("ADMIN")
 						.anyRequest().authenticated());
@@ -55,7 +54,6 @@ public class WebSecurityConfig {
 		
 		http.authenticationProvider(authenticationProvider());
 
-		
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	}
