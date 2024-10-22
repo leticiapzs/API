@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.example.avaliacao.security.dto.EnderecoRequestDTO;
 import br.com.example.avaliacao.security.dto.EnderecoResponseDTO;
-import br.com.example.avaliacao.security.dto.PessoaRequestDTO;
+import br.com.example.avaliacao.security.dto.MessageResponseDTO;
+import br.com.example.avaliacao.security.dto.PessoaDTO;
 import br.com.example.avaliacao.security.entities.Pessoa;
 import br.com.example.avaliacao.security.services.EmailService;
 import br.com.example.avaliacao.security.services.EnderecoService;
@@ -50,8 +51,8 @@ public class PessoaController {
     }
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<?> cadastrarPessoa(@RequestBody PessoaRequestDTO pessoa) {
+	public ResponseEntity<?> cadastrarPessoa(@RequestBody PessoaDTO pessoa) {
 		pessoaService.cadastrarPessoa(pessoa);
-		return ;
+		return ResponseEntity.ok(new MessageResponseDTO("Pessoa cadastrada com sucesso!"));
 	}
 }
