@@ -19,13 +19,13 @@ public class Filme {
 	private Integer id;
 	
 	@Column(name="ano_de_lancamento")
-	private String anoDeLancamento;
+	private Integer anoDeLancamento;
 	
 	@Column(name="genero")
 	private String genero;
 	
 	@Column(name="descricao")
-	private String descricao;
+	private String nomeFilme;
 	
 	@OneToOne
 	@JoinColumn(name="fk_pessoa")
@@ -34,18 +34,18 @@ public class Filme {
 	public Filme() {
 	}
 
-	public Filme(Integer id, String anoDeLancamento, String genero, String descricao) {
+	public Filme(Integer id, Integer anoDeLancamento, String genero, String nomeFilme) {
 		this.id = id;
 		this.anoDeLancamento = anoDeLancamento;
 		this.genero = genero;
-		this.descricao = descricao;
+		this.nomeFilme = nomeFilme;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public String getAnoDeLancamento() {
+	public Integer getAnoDeLancamento() {
 		return anoDeLancamento;
 	}
 
@@ -53,15 +53,27 @@ public class Filme {
 		return genero;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public String nomeFilme() {
+		return nomeFilme;
 	}
 
 	
 	@Override
 	public String toString() {
-		return "Filme [id=" + id + ", anoDeLancamento=" + anoDeLancamento + ", genero=" + genero + ", descricao="
-				+ descricao + "]";
+		return "Filme [id=" + id + ", anoDeLancamento=" + anoDeLancamento + ", genero=" + genero + ", nomeFilme="
+				+ nomeFilme + "]";
+	}
+
+	public void setAnoDeLancamento(Integer anoDeLancamento2) {
+	}
+
+	public void setGenero(String genero2) {		
+	}
+
+	public void setDescricao(String nomeFilme2) {
+	}
+
+	public void setNomeFilme(String nomeFilme2) {
 	}
 	
 	

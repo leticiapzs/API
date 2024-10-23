@@ -3,7 +3,6 @@ import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -12,7 +11,6 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
@@ -55,9 +53,9 @@ public class EmailService {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     SimpleMailMessage message = new SimpleMailMessage();
-    message.setTo("fredcostafernandes@gmail.com");
-    message.setSubject("TESTE"); 
-    message.setText("Testando o envio do email" + dateTime.format(formatter)); 
+    message.setTo("deboramat.ipac@gmail.com");
+    message.setSubject("OBRIGADA PELA SUA AVALIAÇÃO"); 
+    message.setText("Obrigada por usar nossa plataforma de avaliação" + dateTime.format(formatter)); 
 
     try {
       javaMailSender.send(message);
