@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.example.avaliacao.security.dto.FilmeDTO;
 import br.com.example.avaliacao.security.dto.MessageResponseDTO;
 import br.com.example.avaliacao.security.services.EmailService;
@@ -24,25 +23,17 @@ public class FilmeController {
 	FilmeService filmeService;
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<?> cadastrarPessoa(@RequestBody FilmeDTO filme) {
+	public ResponseEntity<?> cadastrarFilme(@RequestBody FilmeDTO filme) {
 		filmeService.cadastrarFilme(filme);
 		return ResponseEntity.ok(new MessageResponseDTO("Filme cadastrado com sucesso!"));
 	}
 	
-	@GetMapping
-	public String  writerTeste() {
-		emailService.writerTeste();
-		return "Email enviado com sucesso!";
-	}
-	@GetMapping("/envioemail")
-	public String writerTeste2() {
-		emailService.writerTeste2();
-		return "Email enviado com sucesso!";
-	}
-	@GetMapping("/Filmes")
-    public String mailSend() {
-        emailService.mailSend();
-        return "Email(2) Enviado com Sucesso";
-    }
+
 	
+	
+	@GetMapping("/enviar-comprovante-de-avaliacao")
+	public String  envioEmail() {
+		emailService.envioEmail();
+		return "Email enviado com sucesso!";
+	}
 }

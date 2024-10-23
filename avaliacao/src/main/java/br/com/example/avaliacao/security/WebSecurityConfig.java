@@ -45,7 +45,7 @@ public class WebSecurityConfig {
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/g6/**", "/auth/**", "/h2-console/**", "/roles/**", "/test/all/**",						
-								"/swagger-ui/**", "/v3/api-docs/**", "/actuator/**", "/pessoas/cadastrar**", "/pessoas/envioemail**", "/filmes/**",     "/endereco/cadastro-de-endereco**", "/endereco/{id}/**"
+								"/swagger-ui/**", "/v3/api-docs/**", "/actuator/**", "/pessoas/cadastrar**", "/filmes/cadastrar**", "/filmes/enviar-comprovante-de-avaliacao**", "/filmes/Filmes**",     "/endereco/cadastro-de-endereco**", "/endereco/{id}/**"
 										+ "").permitAll()
 						.requestMatchers("/test/user/**").hasAnyRole("USER", "ADMIN")
 						.requestMatchers("/test/admin/**").hasRole("ADMIN")
