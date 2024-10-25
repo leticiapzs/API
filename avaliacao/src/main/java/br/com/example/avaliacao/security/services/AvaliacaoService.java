@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import br.com.example.avaliacao.security.dto.AvaliacaoDTO;
 import br.com.example.avaliacao.security.entities.Avaliacao;
 import br.com.example.avaliacao.security.repositories.AvaliacaoRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class AvaliacaoService {
@@ -18,7 +19,14 @@ public class AvaliacaoService {
 		newAvaliacao.setReview(avaliacao.getReview());
 		
 		avaliacaoRepository.save(newAvaliacao);
-		
+	}
+	
+	public void deletarAvaliacao(Integer id) {
+		if (avaliacaoRepository.existsById(id)) {
+			avaliacaoRepository.deleteById(id);
+		} else {
+			throw new EntityNotFoundException("Avaliação deletada com sucesso!");
+		}
 	}
 
 }
