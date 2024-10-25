@@ -43,6 +43,15 @@ public class Avaliacao {
 		this.pessoas = pessoas;
 		this.user = user;
 	}
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getClassificacao() {
 		return classificacao;
@@ -74,10 +83,6 @@ public class Avaliacao {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public Integer getId() {
-		return id;
 	}
 
 	@Override

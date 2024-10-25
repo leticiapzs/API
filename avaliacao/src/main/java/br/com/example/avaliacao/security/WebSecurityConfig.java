@@ -45,7 +45,7 @@ public class WebSecurityConfig {
 				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/g6/**", "/auth/**", "/h2-console/**", "/roles/**", "/test/all/**",						
-								"/swagger-ui/**", "/v3/api-docs/**", "/actuator/**", "/pessoas/cadastrar**", "/filmes/cadastrar**", "/filmes/listar",  "/filmes/enviar-comprovante-de-avaliacao**", "/filmes/deletar**",     "/endereco/cadastro-de-endereco**", "/endereco/{id}/**" , "avaliacoes/criar-avaliacao",   "avaliacoes/deletar-avaliacao**"             
+								"/swagger-ui/**", "/v3/api-docs/**", "/actuator/**", "/pessoas/cadastrar**", "/filmes/cadastrar**", "/filmes/listar",  "/filmes/enviar-comprovante-de-avaliacao**", "/filmes/deletar**", "/filmes/atualizar**",    "/endereco/cadastro-de-endereco**", "/endereco/{id}/**" , "avaliacoes/criar-avaliacao",   "avaliacoes/deletar-avaliacao**"             
 										+ "").permitAll()
 						.requestMatchers("/test/user/**").hasAnyRole("USER", "ADMIN")
 						.requestMatchers("/test/admin/**").hasRole("ADMIN")

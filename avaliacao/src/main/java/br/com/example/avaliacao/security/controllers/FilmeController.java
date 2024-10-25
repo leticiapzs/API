@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.example.avaliacao.security.dto.FilmeDTO;
+import br.com.example.avaliacao.security.dto.FilmePutDTO;
 import br.com.example.avaliacao.security.dto.MessageResponseDTO;
 import br.com.example.avaliacao.security.entities.Filme;
 import br.com.example.avaliacao.security.services.EmailService;
@@ -39,11 +41,6 @@ public class FilmeController {
 		return filmeService.listarFilme();
 	}
 	
-	@GetMapping("/enviar-comprovante-de-avaliacao")
-	public String  envioEmail() {
-		emailService.envioEmail();
-		return "Email enviado com sucesso!";
-	}
 	
 	@DeleteMapping("/deletar")
 	public ResponseEntity<String> deletarFilme(@PathVariable Integer id) {
@@ -53,5 +50,10 @@ public class FilmeController {
 		} catch (EntityNotFoundException e) {
 			return ResponseEntity.notFound().build();
 		}
+	}
+	
+	@PutMapping("/atualizar")
+	public ResponseEntity<?> atualizarFilme(@PathVariable Integer id, @RequestBody FilmePutDTO filmeDTO) {
+		return filmeService.atualizarFilme(id, filmeDTO);
 	}
 }

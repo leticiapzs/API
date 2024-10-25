@@ -34,15 +34,29 @@ public class Filme {
 	public Filme() {
 	}
 
-	public Filme(Integer id, Integer anoDeLancamento, String genero, String nomeFilme) {
+	public Filme(Integer id, Integer anoDeLancamento, String genero, String nomeFilme, Pessoa pessoas) {
 		this.id = id;
 		this.anoDeLancamento = anoDeLancamento;
 		this.genero = genero;
 		this.nomeFilme = nomeFilme;
+		this.pessoas = pessoas;
 	}
 
+	
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Pessoa getPessoas() {
+		return pessoas;
+	}
+
+	public void setPessoas(Pessoa pessoas) {
+		this.pessoas = pessoas;
 	}
 
 	public Integer getAnoDeLancamento() {
@@ -53,16 +67,16 @@ public class Filme {
 		return genero;
 	}
 
-	public String nomeFilme() {
+	public String getNomeFilme() {
 		return nomeFilme;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Filme [id=" + id + ", anoDeLancamento=" + anoDeLancamento + ", genero=" + genero + ", nomeFilme="
-				+ nomeFilme + "]";
+				+ nomeFilme + ", pessoas=" + pessoas + "]";
 	}
+	
 
 	public void setAnoDeLancamento(Integer anoDeLancamento2) {
 	}

@@ -1,20 +1,18 @@
 package br.com.example.avaliacao.security.dto;
 
-
-
-public class FilmeDTO {
-
+public class FilmePutDTO {
+	
 	private Integer id;
 	private Integer anoDeLancamento;
 	private String genero;
 	private String nomeFilme;
 	
 	
-	public FilmeDTO() {
+	public FilmePutDTO() {
 	}
 
 
-	public FilmeDTO(Integer id, Integer anoDeLancamento, String genero, String nomeFilme) {
+	public FilmePutDTO(Integer id, Integer anoDeLancamento, String genero, String nomeFilme) {
 		this.id = id;
 		this.anoDeLancamento = anoDeLancamento;
 		this.genero = genero;
@@ -60,14 +58,4 @@ public class FilmeDTO {
 	public void setNomeFilme(String nomeFilme) {
 		this.nomeFilme = nomeFilme;
 	}
-
-
-	@Override
-	public String toString() {
-		return "FilmeDTO [id=" + id + ", anoDeLancamento=" + anoDeLancamento + ", genero=" + genero + ", nomeFilme="
-				+ nomeFilme + "]";
-	}	
 }
-
-
-
