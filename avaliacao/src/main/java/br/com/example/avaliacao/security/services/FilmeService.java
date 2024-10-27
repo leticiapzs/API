@@ -24,6 +24,14 @@ public class FilmeService {
 	@Autowired
 	AvaliacaoRepository avaliacaoRepository;
 	
+	public void cadastrarFilme(FilmeDTO filme) {
+		Filme newFilme = new Filme();
+		newFilme.setAnoDeLancamento(filme.getAnoDeLancamento());
+		newFilme.setGenero(filme.getGenero());
+		newFilme.setNomeFilme(filme.getNomeFilme());	
+		
+		filmeRepository.save(newFilme);
+	}
 	
 	public static FilmeDTO buscarFilme (Integer id) {
 		return null;
@@ -33,22 +41,7 @@ public class FilmeService {
 		return filmeRepository.findAll();
 	}
 	
-	public void cadastrarFilme(FilmeDTO filme) {
-		Filme newFilme = new Filme();
-		newFilme.setAnoDeLancamento(filme.getAnoDeLancamento());
-		newFilme.setGenero(filme.getGenero());
-		newFilme.setNomeFilme(filme.getNomeFilme());	
-				
-		filmeRepository.save(newFilme);
-	}
 	
-	public void deletarFilme(Integer id) {
-		if (filmeRepository.existsById(id)) {
-			filmeRepository.deleteById(id);
-		} else {
-			throw new EntityNotFoundException("Filme não encontrado");
-		}
-	}
 	
 	public ResponseEntity<?> atualizarFilme(Integer id, FilmePutDTO filmeDTO) {
 		
@@ -66,4 +59,11 @@ public class FilmeService {
 		return ResponseEntity.ok(new MessageResponseDTO("Filme atualizado com sucesso!"));
 	}
 	
+	public void deletarFilme(Integer id) {
+		if (filmeRepository.existsById(id)) {
+			filmeRepository.deleteById(id);
+		} else {
+			throw new EntityNotFoundException("Filme deletado!");
+		}
+	}
 }

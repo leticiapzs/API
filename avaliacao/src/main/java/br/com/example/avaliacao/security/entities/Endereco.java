@@ -43,9 +43,6 @@ public class Endereco {
     private String estado;
 	
 	
-	@OneToOne
-	@JoinColumn(name="fk_pessoa")
-	private Pessoa pessoas;
 	
 	public Endereco() {
 	}

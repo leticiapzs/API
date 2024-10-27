@@ -37,7 +37,7 @@ public class SwaggerConfigs {
 
 	Info info = new Info();
 	info.setTitle("Avalições");
-	info.setVersion("6.4.1");
+	info.setVersion("6.5.1");
 	info.setDescription("API de avaliações de filmes e séries");
 	info.setContact(contact);
 	info.setLicense(license);
